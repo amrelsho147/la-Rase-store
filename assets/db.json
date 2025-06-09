@@ -1,0 +1,320 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "title": "Bag with Beads - Silver Pattern",
+      "imageCover": "assets/pink_beaded_bag.jpeg",
+      "price": 450,
+      "priceAfterDiscount": 400,
+      "category": {
+        "name": "Bead Bags"
+      },
+      "ratingsAverage": 4.8,
+      "description": "A stylish bag adorned with intricate beadwork, perfect for evening outings."
+    },
+    {
+      "id": "2",
+      "title": "Handcrafted Beaded Bag - Blue Shades",
+      "imageCover": "assets/red_product.jpeg",
+      "price": 400,
+      "priceAfterDiscount": 355,
+      "category": {
+        "name": "Bead Bags"
+      },
+      "ratingsAverage": 4.6,
+      "description": "A unique handcrafted bag featuring beautiful blue beads, ideal for casual outings."
+    },
+    {
+      "id": "3",
+      "title": "Chic Bead Purse - Handcrafted",
+      "imageCover": "assets/black_beaded_bag.jpeg",
+      "price": 600,
+      "priceAfterDiscount": 500,
+      "category": {
+        "name": "Bead Bags"
+      },
+      "ratingsAverage": 4.9,
+      "description": "A chic purse with intricate beadwork, perfect for adding a touch of elegance to any outfit."
+    },
+    {
+      "id": "4",
+      "title": "Elegant Bead Bag - Gold Finish",
+      "imageCover": "assets/pink_beaded_bag.jpeg",
+      "price": 399,
+      "priceAfterDiscount": 1250,
+      "category": {
+        "name": "Bead Bags"
+      },
+      "ratingsAverage": 4.89,
+      "description": "A chic purse with intricate beadwork, perfect for adding a touch of elegance to any outfit."
+    },
+    {
+      "id": "5",
+      "title": "Multicolored Bead Bag with Tassels",
+      "imageCover": "assets/reed_bag.jpeg",
+      "price": 599,
+      "priceAfterDiscount": 1100,
+      "category": {
+        "name": "Bead Bags"
+      },
+      "ratingsAverage": 4.59,
+      "description": "A chic purse with intricate beadwork, perfect for adding a touch of elegance to any outfit."
+    },
+    {
+      "id": "6",
+      "title": "Beaded Evening Clutch - Black & Silver",
+      "imageCover": "assets/red_product.jpeg",
+      "price": 355,
+      "priceAfterDiscount": 1900,
+      "category": {
+        "name": "Bead Bags"
+      },
+      "ratingsAverage": 4.69,
+      "description": "A chic purse with intricate beadwork, perfect for adding a touch of elegance to any outfit."
+    },
+    {
+      "id": "7",
+      "title": "Handmade Bead Bag - Traditional Design",
+      "imageCover": "assets/blue_bag.jpeg",
+      "price": 599,
+      "priceAfterDiscount": 900,
+      "category": {
+        "name": "Bead Bags"
+      },
+      "ratingsAverage": 4.79,
+      "description": "A chic purse with intricate beadwork, perfect for adding a touch of elegance to any outfit."
+    },
+    {
+      "id": "8",
+      "title": "Beaded Bag with Floral Design",
+      "imageCover": "assets/white_bag.jpeg",
+      "price": 399,
+      "priceAfterDiscount": 1000,
+      "category": {
+        "name": "Bead Bags"
+      },
+      "ratingsAverage": 4.89,
+      "description": "A chic purse with intricate beadwork, perfect for adding a touch of elegance to any outfit."
+    },
+    {
+      "id": "9",
+      "title": "Beaded Shoulder Bag - Brown Tones",
+      "imageCover": "assets/white2_bag.jpeg",
+      "price": 365,
+      "priceAfterDiscount": 1000,
+      "category": {
+        "name": "Bead Bags"
+      },
+      "ratingsAverage": 4.49,
+      "description": "A chic purse with intricate beadwork, perfect for adding a touch of elegance to any outfit."
+    },
+    {
+      "id": "10",
+      "title": "Elegant Handcrafted Bead Purse",
+      "imageCover": "assets/red_product.jpeg",
+      "price": 1750,
+      "priceAfterDiscount": 1550,
+      "category": {
+        "name": "Bead Bags"
+      },
+      "ratingsAverage": 4.9
+    },
+    {
+      "id": "11",
+      "title": "Bohemian Style Bead Bag",
+      "imageCover": "assets/red_product.jpeg",
+      "price": 1400,
+      "priceAfterDiscount": 1200,
+      "category": {
+        "name": "Bead Bags"
+      },
+      "ratingsAverage": 4.6
+    },
+    {
+      "id": "12",
+      "title": "Traditional Handcrafted Beaded Bag",
+      "imageCover": "assets/red_product.jpeg",
+      "price": 950,
+      "priceAfterDiscount": 850,
+      "category": {
+        "name": "Bead Bags"
+      },
+      "ratingsAverage": 4.7
+    },
+    {
+      "id": "13",
+      "title": "Vintage Beaded Handbag",
+      "imageCover": "assets/red_product.jpeg",
+      "price": 2000,
+      "priceAfterDiscount": 1700,
+      "category": {
+        "name": "Bead Bags"
+      },
+      "ratingsAverage": 4.8
+    },
+    {
+      "id": "14",
+      "title": "Colorful Bead Bag - Eco-Friendly",
+      "imageCover": "assets/red_product.jpeg",
+      "price": 1050,
+      "priceAfterDiscount": 900,
+      "category": {
+        "name": "Bead Bags"
+      },
+      "ratingsAverage": 4.5
+    },
+    {
+      "id": "15",
+      "title": "Bead Bag with Floral Embroidery",
+      "imageCover": "assets/red_product.jpeg",
+      "price": 1800,
+      "priceAfterDiscount": 1550,
+      "category": {
+        "name": "Bead Bags"
+      },
+      "ratingsAverage": 4.7
+    },
+    {
+      "id": "16",
+      "title": "Beaded Handbag - Modern Style",
+      "imageCover": "assets/red_product.jpeg",
+      "price": 1500,
+      "priceAfterDiscount": 1350,
+      "category": {
+        "name": "Bead Bags"
+      },
+      "ratingsAverage": 4.8
+    },
+    {
+      "id": "17",
+      "title": "Luxury Bead Evening Bag",
+      "imageCover": "assets/red_product.jpeg",
+      "price": 2500,
+      "priceAfterDiscount": 2200,
+      "category": {
+        "name": "Bead Bags"
+      },
+      "ratingsAverage": 4.9
+    },
+    {
+      "id": "18",
+      "title": "Handcrafted Bead Shoulder Bag",
+      "imageCover": "assets/red_product.jpeg",
+      "price": 1100,
+      "priceAfterDiscount": 1000,
+      "category": {
+        "name": "Bead Bags"
+      },
+      "ratingsAverage": 4.6
+    },
+    {
+      "id": "19",
+      "title": "Simple Bead Clutch - Black",
+      "imageCover": "assets/red_product.jpeg",
+      "price": 950,
+      "priceAfterDiscount": 850,
+      "category": {
+        "name": "Bead Bags"
+      },
+      "ratingsAverage": 4.4
+    },
+    {
+      "id": "20",
+      "title": "Minimalist Beaded Bag - White",
+      "imageCover": "assets/red_product.jpeg",
+      "price": 1300,
+      "priceAfterDiscount": 1150,
+      "category": {
+        "name": "Bead Bags"
+      },
+      "ratingsAverage": 4.5
+    },
+    {
+      "id": "21",
+      "title": "Handcrafted Bead Tote Bag - Brown",
+      "imageCover": "assets/red_product.jpeg",
+      "price": 1050,
+      "priceAfterDiscount": 950,
+      "category": {
+        "name": "Bead Bags"
+      },
+      "ratingsAverage": 4.7
+    },
+    {
+      "id": "22",
+      "title": "Luxury Bead Bag - Exclusive Design",
+      "imageCover": "assets/red_product.jpeg",
+      "price": 2500,
+      "priceAfterDiscount": 2300,
+      "category": {
+        "name": "Bead Bags"
+      },
+      "ratingsAverage": 4.9
+    },
+    {
+      "id": "23",
+      "title": "Eco-friendly Bead Bag - Green Tones",
+      "imageCover": "assets/red_product.jpeg",
+      "price": 950,
+      "priceAfterDiscount": 850,
+      "category": {
+        "name": "Bead Bags"
+      },
+      "ratingsAverage": 4.5
+    },
+    {
+      "id": "24",
+      "title": "Beaded Clutch with Pearls",
+      "imageCover": "assets/red_product.jpeg",
+      "price": 1200,
+      "priceAfterDiscount": 1000,
+      "category": {
+        "name": "Bead Bags"
+      },
+      "ratingsAverage": 4.6
+    },
+    {
+      "id": "25",
+      "title": "Handcrafted Bohemian Bead Bag",
+      "imageCover": "assets/red_product.jpeg",
+      "price": 1400,
+      "priceAfterDiscount": 1300,
+      "category": {
+        "name": "Bead Bags"
+      },
+      "ratingsAverage": 4.7
+    },
+    {
+      "id": "26",
+      "title": "Vintage Bead Bag - Classic Design",
+      "imageCover": "assets/red_product.jpeg",
+      "price": 1500,
+      "priceAfterDiscount": 1300,
+      "category": {
+        "name": "Bead Bags"
+      },
+      "ratingsAverage": 4.8
+    },
+    {
+      "id": "27",
+      "title": "Bead Bag with Animal Print",
+      "imageCover": "assets/red_product.jpeg",
+      "price": 1400,
+      "priceAfterDiscount": 1200,
+      "category": {
+        "name": "Bead Bags"
+      },
+      "ratingsAverage": 4.7
+    },
+    {
+      "id": "28",
+      "title": "Luxury Beaded Shoulder Bag",
+      "imageCover": "assets/red_product.jpeg",
+      "priceAfterDiscount": 2000,
+      "category": {
+        "name": "Bead Bags"
+      },
+      "ratingsAverage": 4.9
+    }
+  ]
+}

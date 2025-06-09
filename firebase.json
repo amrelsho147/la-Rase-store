@@ -1,0 +1,24 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "larasestoree",
+          "appId": "1:906825370718:android:89e0459a8542b5d598f8cf",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "larasestoree",
+          "configurations": {
+            "android": "1:906825370718:android:89e0459a8542b5d598f8cf",
+            "ios": "1:906825370718:ios:3afd64b1bf466e1798f8cf",
+            "web": "1:906825370718:web:1c8ee542d55edb6f98f8cf",
+            "windows": "1:906825370718:web:1c8ee542d55edb6f98f8cf"
+          }
+        }
+      }
+    }
+  }
+}

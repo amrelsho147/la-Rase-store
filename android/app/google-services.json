@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "906825370718",
+    "project_id": "larasestoree",
+    "storage_bucket": "larasestoree.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:906825370718:android:d5d040cbc94f5bed98f8cf",
+        "android_client_info": {
+          "package_name": "com.example.la_rase_store"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCdijELWPgeHWB4vh0aIM8hCJLCzaaYVEQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:906825370718:android:5ea338a06ae55e3a98f8cf",
+        "android_client_info": {
+          "package_name": "com.example.la_rase_store_project"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCdijELWPgeHWB4vh0aIM8hCJLCzaaYVEQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:906825370718:android:89e0459a8542b5d598f8cf",
+        "android_client_info": {
+          "package_name": "com.example.la_store"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCdijELWPgeHWB4vh0aIM8hCJLCzaaYVEQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
