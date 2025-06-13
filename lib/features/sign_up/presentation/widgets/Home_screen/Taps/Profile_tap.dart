@@ -147,8 +147,7 @@ class ProfileTap extends StatelessWidget {
     );
   }
 
-  Widget _buildProfileOption(
-    BuildContext context, {
+  Widget _buildProfileOption(BuildContext context, {
     required IconData icon,
     required String title,
     required VoidCallback onTap,

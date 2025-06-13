@@ -1,7 +1,9 @@
-import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:la_store/features/sign_up/presentation/widgets/sign_in_page.dart';
+
 import 'Home_screen/HomeScreen.dart';
 
 class CreateAccountPage extends StatefulWidget {
@@ -19,8 +21,9 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
   final _passwordController = TextEditingController();
   final _confirmPasswordController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
-  String? _errorMessage = '';
   bool _isLoading = false;
+  bool _obscurePassword = true;
+  bool _obscureConfirmPassword = true;
 
   @override
   void dispose() {
@@ -31,59 +34,70 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
     super.dispose();
   }
 
+  Future<bool> _checkInternetConnection() async {
+    var connectivityResult = await Connectivity().checkConnectivity();
+    return connectivityResult != ConnectivityResult.none;
+  }
+
   Future<void> _createAccount() async {
     if (!_formKey.currentState!.validate()) {
       return;
     }
 
+    if (!await _checkInternetConnection()) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+            content: Text('No internet connection. Please try again.')),
+      );
+      return;
+    }
+
+    bool isLoading = true;
+    String? errorMessage;
+
     setState(() {
-      _isLoading = true;
-      _errorMessage = '';
+      _isLoading = isLoading;
     });
 
     try {
       UserCredential userCredential = await FirebaseAuth.instance
           .createUserWithEmailAndPassword(
-            email: _emailController.text.trim(),
-            password: _passwordController.text.trim(),
-          );
+        email: _emailController.text.trim(),
+        password: _passwordController.text.trim(),
+      );
 
       await FirebaseFirestore.instance
           .collection('users')
           .doc(userCredential.user!.uid)
           .set({
-            'name': _nameController.text.trim(),
-            'email': _emailController.text.trim(),
-            'createdAt': Timestamp.now(),
-          });
+        'name': _nameController.text.trim(),
+        'email': _emailController.text.trim(),
+        'createdAt': Timestamp.now(),
+      });
 
-      print(
-        'User created and logged in: ${userCredential.user?.uid}',
-      ); // للتحقق
-      // استخدام pushNamedAndRemoveUntil لضمان التوجيه الصحيح
+      print('User created and logged in: ${userCredential.user?.uid}');
       Navigator.pushNamedAndRemoveUntil(
         context,
-        HomeScreen.routNam,
-        (route) => false,
+        HomeScreen.routeName, // Fixed typo from routNam
+            (route) => false,
       );
     } on FirebaseAuthException catch (e) {
-      setState(() {
-        if (e.code == 'email-already-in-use') {
-          _errorMessage = 'This email is already in use.';
-        } else if (e.code == 'weak-password') {
-          _errorMessage = 'The password is too weak.';
-        } else {
-          _errorMessage = e.message;
-        }
-      });
+      errorMessage = e.code == 'email-already-in-use'
+          ? 'This email is already in use.'
+          : e.code == 'weak-password'
+          ? 'The password is too weak.'
+          : e.message ?? 'An error occurred. Please try again.';
     } catch (e) {
-      setState(() {
-        _errorMessage = 'An error occurred. Please try again.';
-      });
+      errorMessage = 'An error occurred. Please try again.';
     } finally {
       setState(() {
         _isLoading = false;
       });
+      if (errorMessage != null) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(errorMessage)),
+        );
+      }
     }
   }
 
@@ -116,7 +130,6 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(height: 40),
-
                   TextFormField(
                     controller: _nameController,
                     decoration: InputDecoration(
@@ -178,16 +191,32 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                         Icons.lock,
                         color: Color(0xFFD2B48C),
                       ),
+                      suffixIcon: IconButton(
+                        icon: Icon(
+                          _obscurePassword ? Icons.visibility : Icons
+                              .visibility_off,
+                          color: const Color(0xFFD2B48C),
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            _obscurePassword = !_obscurePassword;
+                          });
+                        },
+                      ),
                       filled: true,
                       fillColor: Colors.white,
                     ),
-                    obscureText: true,
+                    obscureText: _obscurePassword,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'Please enter your password';
                       }
                       if (value.length < 6) {
                         return 'Password must be at least 6 characters';
+                      }
+                      if (!RegExp(r'^(?=.*[A-Z])(?=.*[0-9]).{6,}$').hasMatch(
+                          value)) {
+                        return 'Password must contain at least one uppercase letter and one number';
                       }
                       return null;
                     },
@@ -204,10 +233,22 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                         Icons.lock,
                         color: Color(0xFFD2B48C),
                       ),
+                      suffixIcon: IconButton(
+                        icon: Icon(
+                          _obscureConfirmPassword ? Icons.visibility : Icons
+                              .visibility_off,
+                          color: const Color(0xFFD2B48C),
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            _obscureConfirmPassword = !_obscureConfirmPassword;
+                          });
+                        },
+                      ),
                       filled: true,
                       fillColor: Colors.white,
                     ),
-                    obscureText: true,
+                    obscureText: _obscureConfirmPassword,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'Please confirm your password';
@@ -219,39 +260,29 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                     },
                   ),
                   const SizedBox(height: 20),
-                  if (_errorMessage!.isNotEmpty)
-                    Padding(
-                      padding: const EdgeInsets.only(top: 8.0),
-                      child: Text(
-                        _errorMessage!,
-                        style: const TextStyle(color: Colors.red, fontSize: 14),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                  const SizedBox(height: 20),
                   _isLoading
                       ? const CircularProgressIndicator()
                       : ElevatedButton(
-                        onPressed: _createAccount,
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xFFD2B48C),
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 50,
-                            vertical: 15,
-                          ),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                        ),
-                        child: const Text(
-                          'Create Account',
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
+                    onPressed: _createAccount,
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xFFD2B48C),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 50,
+                        vertical: 15,
                       ),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                    ),
+                    child: const Text(
+                      'Create Account',
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
                   const SizedBox(height: 20),
                   TextButton(
                     onPressed: () {
@@ -275,3 +306,13 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
     );
   }
 }
+
+// Note: Ensure Firestore security rules are set to protect user data:
+// rules_version = '2';
+// service cloud.firestore {
+//   match /databases/{database}/documents {
+//     match /users/{userId} {
+//       allow read, write: if request.auth != null && request.auth.uid == userId;
+//     }
+//   }
+// }

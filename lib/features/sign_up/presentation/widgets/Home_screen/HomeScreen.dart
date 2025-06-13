@@ -10,7 +10,7 @@ import 'Taps/Wishlist_tap.dart';
 import 'Taps/cart_tap.dart';
 
 class HomeScreen extends StatefulWidget {
-  static const String routNam = 'homeScreen';
+  static const String routeName = 'homeScreen';
   static const Color primaryColor = Color(0xFFD2B48C);
   static const Color accentColor = Color(0xFF8B4513);
   static const Color backgroundColor = Color(0xFFF5F5F0);

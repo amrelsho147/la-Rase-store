@@ -29,10 +29,10 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Roboto',
         scaffoldBackgroundColor: const Color(0xFFF5F5F0),
       ),
-      initialRoute: splashScreen.routeName,
+      initialRoute: SplashScreen.routeName,
       routes: {
-        HomeScreen.routNam: (context) => const HomeScreen(),
-        splashScreen.routeName: (context) => const splashScreen(),
+        HomeScreen.routeName: (context) => const HomeScreen(),
+        SplashScreen.routeName: (context) => const SplashScreen(),
         CreateAccountPage.routeName: (context) => const CreateAccountPage(),
         SignInPage.routeName: (context) => const SignInPage(),
         ProductDetailsScreen.routeName:
