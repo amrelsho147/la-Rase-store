@@ -126,7 +126,7 @@ class PaymentScreen extends StatelessWidget {
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(content: Text('Payment Successful!')),
               );
-              Navigator.pushReplacementNamed(context, HomeScreen.routNam);
+              Navigator.pushReplacementNamed(context, HomeScreen.routeName);
             },
             style: ElevatedButton.styleFrom(
               backgroundColor: HomeScreen.primaryColor,
